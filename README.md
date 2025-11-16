@@ -4,6 +4,6 @@
 | STT | Họ và tên | MSSV | Vai trò trong nhóm |
 |:--:|:----------------|:--------:|:-------------------|
 | 1 | Nguyễn Anh Thư | 24S1020077 | Admin |
-| 2 | Đường Minh Anh | 24S1020003 | Developer |  | https://github.com/manh08-nhap-mon- |
+| 2 | Đường Minh Anh | 24S1020003 | Developer |  | https://github.com/manh08-nhap-mon-cnpm |
 | 3 | Trần Phương Anh | 24S1020009 | Developer |
 
