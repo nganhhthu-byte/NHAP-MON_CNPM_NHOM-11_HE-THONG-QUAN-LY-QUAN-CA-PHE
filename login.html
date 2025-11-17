@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập hệ thống</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <div class="error" id="errorMsg"></div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('errorMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Ngăn reload trang
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validate không để trống
+            if (!username || !password) {
+                errorMsg.textContent = "Username và Password không được để trống";
+                return;
+            }
+
+            // Kiểm tra giả lập: username = admin, password = 123
+            if (username === "admin" && password === "123") {
+                alert("Đăng nhập thành công!");
+                errorMsg.textContent = "";
+                // Redirect sang trang chính
+                window.location.href = "home.html";
+            } else {
+                errorMsg.textContent = "Sai username hoặc password!";
+            }
+        });
+    </script>
+</body>
+</html>
