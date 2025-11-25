@@ -7,5 +7,5 @@
 | Nguyễn Anh Thư     | 24S1020077  | https://github.com/nganhhthu-byte |
 | Đường Minh Anh     | 24S1020003  | https://github.com/manh08-nhap-mon-cnpm |
 | Lê C          | 21XYZ003   | https://github.com/userC |
-| Trần A         | 24XY789    | https:// github.com/userA  |
+| Trần A         | 24XY789    | https://github.com/userA  |
 
