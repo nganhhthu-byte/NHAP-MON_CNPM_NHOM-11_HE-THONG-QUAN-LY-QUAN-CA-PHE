@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng nhập</title>
+<style>body{font-family:Arial;margin:20px;}input,button{margin:5px;padding:5px;}</style>
+</head>
+<body>
+<h1>Đăng nhập</h1>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button onclick="login()">Đăng nhập</button>
+<script>
+let accounts=[{username:'admin',password:'123',role:'admin'}];
+function login(){const u=document.getElementById('username').value.trim();const p=document.getElementById('password').value.trim();const acc=accounts.find(a=>a.username===u&&a.password===p);if(acc){alert(`Đăng nhập thành công, role: ${acc.role}`);}else{alert('Sai tài khoản hoặc mật khẩu');}}
+</script>
+</body>
+</html>
