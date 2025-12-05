@@ -1,16 +1,68 @@
-let danhSachBan = [{id:1, name:'Bàn 1'}, {id:2, name:'Bàn 2'}];
-function renderBan() {
-    const list = document.getElementById('ban-list');
-    list.innerHTML = '';
-    danhSachBan.forEach(ban => {
-        const btn = document.createElement('button');
-        btn.textContent = ban.name;
-        btn.onclick = () => alert(`Bạn chọn ${ban.name}`);
-        list.appendChild(btn);
-    });
-}
-function themBan(name) {
-    const id = danhSachBan.length + 1;
-    danhSachBan.push({id, name});
-    renderBan();
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý bàn - Quán cà phê</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        #ban-list button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #them-ban input {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quản lý Bàn</h1>
+
+    <section id="them-ban">
+        <h2>Thêm bàn mới</h2>
+        <input type="text" id="ten-ban" placeholder="Tên bàn">
+        <button onclick="themBan()">Thêm bàn</button>
+    </section>
+
+    <section id="danh-sach-ban">
+        <h2>Danh sách bàn</h2>
+        <div id="ban-list"></div>
+    </section>
+
+    <script>
+        let danhSachBan = [{id: 1, name: 'Bàn 1'}, {id: 2, name: 'Bàn 2'}];
+        const banList = document.getElementById('ban-list');
+
+        function renderBan() {
+            banList.innerHTML = '';
+            danhSachBan.forEach(ban => {
+                const btn = document.createElement('button');
+                btn.textContent = ban.name;
+                btn.onclick = () => alert(`Bạn chọn ${ban.name}`);
+                banList.appendChild(btn);
+            });
+        }
+
+        function themBan() {
+            const tenBan = document.getElementById('ten-ban').value.trim();
+            if(tenBan === '') {
+                alert('Vui lòng nhập tên bàn');
+                return;
+            }
+            const id = danhSachBan.length + 1;
+            danhSachBan.push({id, name: tenBan});
+            document.getElementById('ten-ban').value = '';
+            renderBan();
+        }
+
+        // hiển thị danh sách bàn lúc load trang
+        renderBan();
+    </script>
+</body>
+</html>
