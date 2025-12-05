@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Quản lý nhân viên</title>
+<style>body{font-family:Arial;margin:20px;}button{margin:5px;padding:10px;}</style>
+</head>
+<body>
+<h1>Quản lý Nhân viên</h1>
+<input type="text" id="ten-nv" placeholder="Tên nhân viên">
+<input type="text" id="role" placeholder="Vai trò">
+<button onclick="themNV()">Thêm NV</button>
+<ul id="nv-list"></ul>
+<script>
+let nhanVien=[{id:1,name:'Nguyen Van A',role:'admin'}];const nvList=document.getElementById('nv-list');
+function renderNV(){nvList.innerHTML='';nhanVien.forEach(nv=>{const li=document.createElement('li');li.textContent=`${nv.name} - ${nv.role}`;nvList.appendChild(li);});}
+function themNV(){const name=document.getElementById('ten-nv').value.trim();const role=document.getElementById('role').value.trim();if(name===''||role===''){alert('Nhập đầy đủ');return;}const id=nhanVien.length+1;nhanVien.push({id,name,role});document.getElementById('ten-nv').value='';document.getElementById('role').value='';renderNV();}
+renderNV();
+</script>
+</body>
+</html>

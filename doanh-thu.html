@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><title>Báo cáo doanh thu</title>
+<style>body{font-family:Arial;margin:20px;}button{margin:5px;padding:10px;}</style>
+</head>
+<body>
+<h1>Báo cáo Doanh thu</h1>
+<button onclick="baoCaoDoanhThu()">Xem doanh thu hôm nay</button>
+<script>
+let doanhThu=[{ban:1,total:45000,date:new Date()}];
+function baoCaoDoanhThu(){let tongNgay=0;const today=new Date().toDateString();doanhThu.forEach(hd=>{if(hd.date.toDateString()===today)tongNgay+=hd.total;});alert(`Doanh thu hôm nay: ${tongNgay} VND`);}
+</script>
+</body>
+</html>
