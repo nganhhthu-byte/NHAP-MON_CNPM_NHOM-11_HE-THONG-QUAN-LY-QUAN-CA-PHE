@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><title>Thanh toán</title>
+<style>body{font-family:Arial;margin:20px;}button{margin:5px;padding:10px;}</style>
+</head>
+<body>
+<h1>Thanh toán Hóa đơn</h1>
+<ul id="hoa-don-list"></ul>
+<p>Tổng: <span id="tong-tien">0</span> VND</p>
+<button onclick="thanhToan()">Thanh toán</button>
+<script>
+let hoaDon=[{name:'Cà phê',price:20000},{name:'Trà sữa',price:25000}];const hoaDonList=document.getElementById('hoa-don-list');const tongTienEl=document.getElementById('tong-tien');
+function renderHoaDon(){hoaDonList.innerHTML='';let tong=0;hoaDon.forEach(mon=>{const li=document.createElement('li');li.textContent=`${mon.name} - ${mon.price} VND`;hoaDonList.appendChild(li);tong+=mon.price;});tongTienEl.textContent=tong;}
+function thanhToan(){let tong=0;hoaDon.forEach(mon=>tong+=mon.price);const thue=Math.round(tong*0.1);alert(`Tổng: ${tong} VND, Thuế: ${thue} VND, Thanh toán: ${tong+thue} VND`);hoaDon=[];renderHoaDon();}
+renderHoaDon();
+</script>
+</body>
+</html>
