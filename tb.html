@@ -1,0 +1,16 @@
+let danhSachBan = [{id:1, name:'Bàn 1'}, {id:2, name:'Bàn 2'}];
+function renderBan() {
+    const list = document.getElementById('ban-list');
+    list.innerHTML = '';
+    danhSachBan.forEach(ban => {
+        const btn = document.createElement('button');
+        btn.textContent = ban.name;
+        btn.onclick = () => alert(`Bạn chọn ${ban.name}`);
+        list.appendChild(btn);
+    });
+}
+function themBan(name) {
+    const id = danhSachBan.length + 1;
+    danhSachBan.push({id, name});
+    renderBan();
+}
