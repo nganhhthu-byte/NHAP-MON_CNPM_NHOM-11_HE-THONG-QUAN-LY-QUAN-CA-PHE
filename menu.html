@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><title>Quản lý món</title>
+<style>
+body{font-family:Arial;margin:20px;}
+button{margin:5px;padding:10px;}
+</style>
+</head>
+<body>
+<h1>Quản lý Món</h1>
+<input type="text" id="ten-mon" placeholder="Tên món">
+<input type="number" id="gia-mon" placeholder="Giá">
+<button onclick="themMonMenu()">Thêm món</button>
+<div id="menu-list"></div>
+<script>
+let menu=[{id:1,name:'Cà phê',price:20000}];const menuList=document.getElementById('menu-list');
+function renderMenu(){menuList.innerHTML='';menu.forEach(mon=>{const btn=document.createElement('button');btn.textContent=`${mon.name} - ${mon.price} VND`;menuList.appendChild(btn);});}
+function themMonMenu(){const name=document.getElementById('ten-mon').value.trim();const price=parseInt(document.getElementById('gia-mon').value);if(name===''||isNaN(price)){alert('Nhập tên và giá');return;}const id=menu.length+1;menu.push({id,name,price});document.getElementById('ten-mon').value='';document.getElementById('gia-mon').value='';renderMenu();}
+renderMenu();
+</script>
+</body>
+</html>
