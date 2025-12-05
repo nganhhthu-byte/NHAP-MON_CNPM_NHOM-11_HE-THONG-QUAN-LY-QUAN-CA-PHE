@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><title>Quản lý kho</title>
+<style>
+body{font-family:Arial;margin:20px;}
+button{margin:5px;padding:10px;}
+</style>
+</head>
+<body>
+<h1>Quản lý Kho</h1>
+<input type="text" id="ten-nguyen-lieu" placeholder="Tên NL">
+<input type="number" id="so-luong" placeholder="Số lượng">
+<button onclick="themNguyenLieu()">Thêm NL</button>
+<ul id="kho-list"></ul>
+<script>
+let kho=[{id:1,name:'Cà phê',qty:10}];const khoList=document.getElementById('kho-list');
+function renderKho(){khoList.innerHTML='';kho.forEach(item=>{const li=document.createElement('li');li.textContent=`${item.name} - ${item.qty}`;khoList.appendChild(li);});}
+function themNguyenLieu(){const name=document.getElementById('ten-nguyen-lieu').value.trim();const qty=parseInt(document.getElementById('so-luong').value);if(name===''||isNaN(qty)){alert('Nhập tên và số lượng');return;}const id=kho.length+1;kho.push({id,name,qty});document.getElementById('ten-nguyen-lieu').value='';document.getElementById('so-luong').value='';renderKho();}
+renderKho();
+</script>
+</body>
+</html>
