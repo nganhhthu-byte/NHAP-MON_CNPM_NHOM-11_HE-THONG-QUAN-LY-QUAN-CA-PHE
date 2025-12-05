@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><title>Gọi món</title>
+<style>
+body{font-family:Arial;margin:20px;}
+button{margin:5px;padding:10px;}
+</style>
+</head>
+<body>
+<h1>Gọi Món</h1>
+<div id="menu-list"></div>
+<h2>Hóa đơn</h2>
+<ul id="hoa-don-list"></ul>
+<p>Tổng: <span id="tong-tien">0</span> VND</p>
+<script>
+const menu=[{id:1,name:'Cà phê sữa',price:20000},{id:2,name:'Trà sữa',price:25000}];
+const menuList=document.getElementById('menu-list');const hoaDonList=document.getElementById('hoa-don-list');const tongTienEl=document.getElementById('tong-tien');let tongTien=0;
+menu.forEach(mon=>{const btn=document.createElement('button');btn.textContent=`${mon.name} - ${mon.price} VND`;btn.onclick=()=>{const li=document.createElement('li');li.textContent=`${mon.name} - ${mon.price} VND`;hoaDonList.appendChild(li);tongTien+=mon.price;tongTienEl.textContent=tongTien;};menuList.appendChild(btn);});
+</script>
+</body>
+</html>
